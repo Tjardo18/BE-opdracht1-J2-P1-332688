@@ -36,6 +36,10 @@
         <div class="circle"></div>
         <div class="circle"></div>
 
+        <h1>
+            <?= $data['title']; ?>
+        </h1>
+
         <div class="card">
             <div class="ruimte">
                 <form action="wijzigen.php" method="post">
