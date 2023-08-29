@@ -25,7 +25,8 @@ class Toewijzen extends BaseController
             <th>Bouwjaar</th>
             <th>Brandstof</th>
             <th>Rijbewijscategorie</th>
-            <th>Toewijzen</th>";
+            <th>Toewijzen</th>
+            <th>Wijzigen</th>";
 
             $result = $this->toewijzenModel->getNietToegewezen();
             $rows = "";
@@ -42,6 +43,11 @@ class Toewijzen extends BaseController
                 <td>
                     <a href='../../create/id/$voertuig?voertuig=$voertuig&instructeur=$id'>
                         <i class='bx bx-plus-medical' style='color:#29fd53'></i>
+                    </a>
+                </td>
+                <td>
+                    <a href='#'>
+                        <i class='bx bxs-pencil' style='color:#29fd53'></i>
                     </a>
                 </td>
                 </tr>";
