@@ -136,3 +136,23 @@ th,
 td {
     padding: 2px 7px;
 }
+
+label {
+    font-weight: 500;
+}
+
+input[type=text],
+input[type=date],
+input[type=tel],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=radio] {
+    margin: 12px 0;
+}
