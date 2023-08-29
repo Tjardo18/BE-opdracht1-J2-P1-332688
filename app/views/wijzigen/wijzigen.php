@@ -42,7 +42,7 @@
 
         <div class="card">
             <div class="ruimte">
-                <form action="wijzigen.php" method="post">
+                <form action="" method="post">
                     <div class="inputVeld">
                         <label for="instructeur">
                             Instructeur:
@@ -102,7 +102,8 @@
                         <label for="kenteken">
                             Kenteken:
                         </label>
-                        <input type="text" name="kenteken" id="kenteken" placeholder="AU-67-IO" required>
+            
+                        <input type="text" name="kenteken" id="kenteken" placeholder="<?= $data['kenteken']; ?>" required>
                     </div>
                     <div class="button">
                         <button>Wijzigen</button>

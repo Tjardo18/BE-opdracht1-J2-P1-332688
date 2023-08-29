@@ -9,40 +9,22 @@ class WijzigenModel
         $this->db = new Database();
     }
 
-    public function getNietToegewezen()
+    public function getVoertuig($Id)
     {
-        $sql = "SELECT 
-                        Voertuig.Id AS VoertuigID
-                        ,TypeVoertuig.TypeVoertuig
+        $sql = "SELECT VoertuigId
+		                ,InstructeurId
+                        ,Voertuig.TypeVoertuigId
                         ,Voertuig.Type
-                        ,Voertuig.Kenteken
                         ,Voertuig.Bouwjaar
                         ,Voertuig.Brandstof
-                        ,TypeVoertuig.Rijbewijscategorie
-        FROM Voertuig
-        LEFT JOIN VoertuigInstructeur ON Voertuig.Id = VoertuigInstructeur.VoertuigId
-        INNER JOIN TypeVoertuig ON TypeVoertuig.Id = Voertuig.TypeVoertuigId
-        WHERE VoertuigInstructeur.VoertuigId IS NULL
-        ORDER BY TypeVoertuig.Rijbewijscategorie;";
+                        ,Voertuig.Kenteken
+                FROM VoertuigInstructeur
+                INNER JOIN Instructeur ON Instructeur.Id = VoertuigInstructeur.InstructeurId
+                INNER JOIN Voertuig ON Voertuig.Id = VoertuigInstructeur.VoertuigId
+                WHERE VoertuigId = $Id;";
 
         $this->db->query($sql);
 
         return $this->db->resultSet();
-    }
-
-    public function getInstructeur($Id)
-    {
-        $sql = "SELECT 
-                    Voornaam
-                    ,Tussenvoegsel
-                    ,Achternaam
-                    ,DatumInDienst
-                    ,AantalSterren
-        FROM Instructeur
-        WHERE Id = $Id;";
-
-        $this->db->query($sql);
-
-        return $this->db->resultSetAssoc();
     }
 }

@@ -12,8 +12,8 @@ class VoertuigModel
     public function getVoertuigen($Id)
     {
         $sql = "SELECT 
-                    TypeVoertuig.TypeVoertuig
-                    ,Voertuig.Id
+                    Voertuig.Id AS VoertuigID
+                    ,TypeVoertuig.TypeVoertuig
                     ,Voertuig.Type
                     ,Voertuig.Kenteken
                     ,Voertuig.Bouwjaar
