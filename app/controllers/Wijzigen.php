@@ -1,18 +1,18 @@
 <?php
 
-class Toewijzen extends BaseController
+class Wijzigen extends BaseController
 {
-    private $toewijzenModel;
+    private $wijzigenModel;
 
     public function __construct()
     {
-        $this->toewijzenModel = $this->model('ToewijzenModel');
+        $this->wijzigenModel = $this->model('WijzigenModel');
     }
 
     public function index($id = NULL)
     {
-        $result = $this->toewijzenModel->getNietToegewezen();
-        $instructeur = $this->toewijzenModel->getInstructeur($id);
+        $result = $this->wijzigenModel->getNietToegewezen();
+        $instructeur = $this->wijzigenModel->getInstructeur($id);
 
         if ($result == null) {
             $th = "";
@@ -28,25 +28,25 @@ class Toewijzen extends BaseController
             <th>Toewijzen</th>
             <th>Wijzigen</th>";
 
-            $result = $this->toewijzenModel->getNietToegewezen();
+            $result = $this->wijzigenModel->getNietToegewezen();
             $rows = "";
-            foreach ($result as $toewijzen) {
-                $voertuig = $toewijzen->VoertuigID;
+            foreach ($result as $wijzigen) {
+                $voertuig = $wijzigen->VoertuigID;
 
                 $rows .= "<tr>
-                <td>$toewijzen->TypeVoertuig</td>
-                <td>$toewijzen->Type</td>
-                <td>$toewijzen->Kenteken</td>
-                <td>$toewijzen->Bouwjaar</td>
-                <td>$toewijzen->Brandstof</td>
-                <td>$toewijzen->Rijbewijscategorie</td>
+                <td>$wijzigen->TypeVoertuig</td>
+                <td>$wijzigen->Type</td>
+                <td>$wijzigen->Kenteken</td>
+                <td>$wijzigen->Bouwjaar</td>
+                <td>$wijzigen->Brandstof</td>
+                <td>$wijzigen->Rijbewijscategorie</td>
                 <td>
                     <a href='../../create/id/$voertuig?voertuig=$voertuig&instructeur=$id'>
                         <i class='bx bx-plus-medical' style='color:#29fd53'></i>
                     </a>
                 </td>
                 <td>
-                    <a href='../../wijzigen/id/$voertuig'>
+                    <a href='#'>
                         <i class='bx bxs-pencil' style='color:#29fd53'></i>
                     </a>
                 </td>
@@ -56,14 +56,11 @@ class Toewijzen extends BaseController
 
 
         $data = [
-            'title' => 'Alle beschikbare voertuigen',
+            'title' => 'Wijzigen voertuiggegevens',
             'rows' => $rows,
-            'fullName' => $instructeur['Voornaam'] . ' ' . $instructeur['Tussenvoegsel'] . ' ' . $instructeur['Achternaam'],
-            'did' => $instructeur['DatumInDienst'],
-            'TotalStars' => $instructeur['AantalSterren'],
             'th' => $th
         ];
 
-        $this->view('toewijzen/toewijzen', $data);
+        $this->view('wijzigen/wijzigen', $data);
     }
 }

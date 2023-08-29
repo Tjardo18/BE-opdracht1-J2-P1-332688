@@ -38,7 +38,7 @@ class Voertuig extends BaseController
                 <td>$voertuig->Brandstof</td>
                 <td>$voertuig->Rijbewijscategorie</td>
                 <td>
-                    <a href='#'>
+                    <a href='../../wijzigen/id/$voertuig->Id'>
                         <i class='bx bxs-pencil' style='color:#29fd53'></i>
                     </a>
                 </td>
