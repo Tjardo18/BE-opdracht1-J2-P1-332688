@@ -16,12 +16,12 @@ class Wijzigen extends BaseController
 
         $data = [
             'title' => 'Wijzigen voertuiggegevens',
-            'instructeur' => $result->InstructeurId,
-            'typeVoertuig' => $result->TypeVoertuigId,
-            'autoMerk' => $result->Type,
-            'bouwjaar' => $result->Bouwjaar,
-            'brandstof' => $result->Brandstof,
-            'kenteken' => $result->Kenteken
+            'instructeur' => $result['InstructeurId'],
+            'typeVoertuig' => $result['TypeVoertuigId'],
+            'autoMerk' => $result['Type'],
+            'bouwjaar' => $result['Bouwjaar'],
+            'brandstof' => $result['Brandstof'],
+            'kenteken' => $result['Kenteken']
         ];
 
         $this->view('wijzigen/wijzigen', $data);

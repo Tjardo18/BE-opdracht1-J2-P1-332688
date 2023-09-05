@@ -17,7 +17,6 @@ class Voertuig extends BaseController
         if ($result == null) {
             $th = "";
             $rows = "<h2>Er zijn op dit moment nog geen voertuigen toegewezen aan deze instructeur.</h2>";
-            header("refresh:3;../../instructeur");
         } else {
             $th = "<th>Type Voertuig</th>
             <th>Type</th>
