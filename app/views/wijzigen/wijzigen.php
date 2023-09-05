@@ -42,7 +42,7 @@
 
         <div class="card">
             <div class="ruimte">
-                <form action="" method="post">
+                <form action="../../update" method="post">
                     <div class="inputVeld">
                         <label for="instructeur">
                             Instructeur:
@@ -79,7 +79,7 @@
                     <div class="inputVeld">
                         <label for="bouwjaar">
                             Bouwjaar:
-                            <input type="date" name="bouwjaar" id="bouwjaar" required="" value="<?= $data['bouwjaar'] ?>">
+                            <input type="date" name="bouwjaar" id="bouwjaar" required="" value="<?= $data['bouwjaar'] ?>" readonly>
                         </label>
                     </div>
 
@@ -104,6 +104,7 @@
 
                         <input type="text" name="kenteken" id="kenteken" value="<?= $data['kenteken']; ?>" required>
                     </div>
+                    <input type="hidden" name="voertuig" id="voertuig" value="<?= $data['id'] ?>">
                     <div class="button">
                         <button>Wijzigen</button>
                     </div>

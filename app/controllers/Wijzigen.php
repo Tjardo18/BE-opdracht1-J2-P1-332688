@@ -21,7 +21,8 @@ class Wijzigen extends BaseController
             'autoMerk' => $result['Type'],
             'bouwjaar' => $result['Bouwjaar'],
             'brandstof' => $result['Brandstof'],
-            'kenteken' => $result['Kenteken']
+            'kenteken' => $result['Kenteken'],
+            'id' => $id
         ];
 
         $this->view('wijzigen/wijzigen', $data);
