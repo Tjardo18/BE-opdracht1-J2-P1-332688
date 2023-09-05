@@ -45,7 +45,6 @@ class Voertuig extends BaseController
             }
         }
 
-
         $data = [
             'title' => 'Door instructeur gebruikte voertuigen',
             'rows' => $rows,

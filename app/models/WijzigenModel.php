@@ -27,4 +27,20 @@ class WijzigenModel
 
         return $this->db->resultSetAssoc();
     }
+
+    public function getVoertuigen($Id)
+    {
+        $sql = "SELECT Id
+                        ,TypeVoertuigId
+                        ,Type
+                        ,Bouwjaar
+                        ,Brandstof
+                        ,Kenteken
+                FROM Voertuig
+                WHERE Id = $Id;";
+
+        $this->db->query($sql);
+
+        return $this->db->resultSetAssoc();
+    }
 }

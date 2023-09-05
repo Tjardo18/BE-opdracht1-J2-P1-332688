@@ -26,7 +26,7 @@ class UpdateModel
                 WHERE VoertuigId = $VoertuigId;";
         $this->db->query($sql);
 
-        header("refresh:2;../../voertuig/id/$VoertuigId");
+        header("refresh:2;../../voertuig/id/$InstructeurId");
 
         return $this->db->execute();
     }
