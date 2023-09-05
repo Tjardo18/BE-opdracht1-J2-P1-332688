@@ -25,6 +25,6 @@ class WijzigenModel
 
         $this->db->query($sql);
 
-        return $this->db->resultSet();
+        return $this->db->resultSetAssoc();
     }
 }

@@ -72,17 +72,16 @@
                     <div class="inputVeld">
                         <label for="autoMerk">
                             Type:
-                            <input type="text" name="autoMerk" id="autoMerk" placeholder="Seat" required>
+                            <input type="text" name="autoMerk" id="autoMerk" value="<?= $data['autoMerk']; ?>" required>
                         </label>
                     </div>
 
                     <div class="inputVeld">
                         <label for="bouwjaar">
                             Bouwjaar:
-                            <input type="date" name="bouwjaar" id="bouwjaar" required="">
+                            <input type="date" name="bouwjaar" id="bouwjaar" required="" value="<?= $data['bouwjaar'] ?>">
                         </label>
                     </div>
-
 
                     <div class="inputVeld">
                         <label for="brandstof">
@@ -91,7 +90,7 @@
                         <input type="radio" id="brandstof" name="brandstof" value="Diesel">
                         <label for="Diesel">Diesel</label>
 
-                        <input type="radio" id="brandstof" name="brandstof" value="Benzine" checked>
+                        <input type="radio" id="brandstof" name="brandstof" value="Benzine">
                         <label for="Benzine">Benzine</label>
 
                         <input type="radio" id="brandstof" name="brandstof" value="Elektrisch">
@@ -102,8 +101,8 @@
                         <label for="kenteken">
                             Kenteken:
                         </label>
-            
-                        <input type="text" name="kenteken" id="kenteken" placeholder="<?= $data['kenteken']; ?>" required>
+
+                        <input type="text" name="kenteken" id="kenteken" value="<?= $data['kenteken']; ?>" required>
                     </div>
                     <div class="button">
                         <button>Wijzigen</button>
@@ -112,6 +111,38 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const instructeur = document.getElementById("instructeur");
+        const instructeurId = "<?= $data['instructeur']; ?>";
+
+        for (let i = 0; i < instructeur.options.length; i++) {
+            if (instructeur.options[i].value === instructeurId) {
+                instructeur.options[i].selected = true;
+                break;
+            }
+        }
+
+        const typeVoertuig = document.getElementById("typeVoertuig");
+        const typeVoertuigId = "<?= $data['typeVoertuig']; ?>";
+
+        for (let i = 0; i < typeVoertuig.options.length; i++) {
+            if (typeVoertuig.options[i].value === typeVoertuigId) {
+                typeVoertuig.options[i].selected = true;
+                break;
+            }
+        }
+
+        const radioButtons = document.getElementsByName("brandstof");
+        const desiredValue = "<?= $data['brandstof']; ?>";
+
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].value === desiredValue) {
+                radioButtons[i].checked = true;
+                break;
+            }
+        }
+    </script>
 
     <script src="<?= URLROOT; ?>/js/nav.js"></script>
 
